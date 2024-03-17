@@ -1,0 +1,17 @@
+[package]
+name = "js-test"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+js-sandbox = "0.2.0-rc.2"
+swc = "0.273.21"
+swc_common = { version = "0.33.19", features = ["tty-emitter"] }
+swc_ecma_ast = "0.112.5"
+swc_ecma_codegen = "0.148.11"
+swc_ecma_parser = "0.143.9"
+swc_ecma_transforms_base = "0.137.15"
+swc_ecma_transforms_typescript = "0.188.16"
+swc_ecma_visit = "0.98.6"
