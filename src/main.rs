@@ -1,33 +1,28 @@
 use std::time::Duration;
-/*
-mod compiler;
 
-const CODE: &'static str = r#"
-enum Direction {
-  Up,
-  Down,
-  Left,
-  Right,
+fn discordify(s: String) -> String {
+    s.replace("\u{001b}[96m", "\u{001b}[34m")
+        .replace("\u{001b}[93m", "\u{001b}[33m")
+        .replace("\u{001b}[91m", "\u{001b}[31m")
+        .replace("\u{001b}[90m", "\u{001b}[30m")
+        .replace("\u{001b}[7m", "\u{001b}[30;47m")
 }
-"#;
 
 fn main() {
-    let code = compiler::ts_to_js("index.ts", CODE).0;
-    println!("{}", code);
-    let _script = js_sandbox::Script::from_string(&code).unwrap().with_timeout(Duration::from_secs(1));
-}
-*/
-
-// const CODE: &'static str = r#"
-// (() => console.log("hi"))//.toString()
-// "#;
-// let value = js_sandbox::eval_json(CODE).unwrap(); println!("{}", value);
-
-// const CODE: &'static str = include_str!("main.js");
-
-fn main() {
-    String::from_utf8(std::process::Command::new("tsc").arg("main.ts").output().unwrap().stderr).unwrap();
+    let tsc_output = String::from_utf8(
+        std::process::Command::new("tsc")
+            .args(["--target", "esNext", "--pretty", "main.ts"])
+            .output()
+            .unwrap()
+            .stdout, // Why is this on stdout and not stderr?
+    )
+    .unwrap();
+    println!("{}", tsc_output);
+    std::fs::write("tsc_output.log", discordify(tsc_output)).unwrap();
     let code = std::fs::read_to_string("main.js").unwrap();
-    let mut script = js_sandbox::Script::from_string(&format!("const a = (\n{}\n);", code)).unwrap().with_timeout(Duration::from_secs(1));
+    let code = code.trim().strip_suffix(";").unwrap_or(&code);
+    let mut script = js_sandbox::Script::from_string(&format!("const a = (\n{}\n);", code))
+        .unwrap()
+        .with_timeout(Duration::from_secs(1));
     script.call::<_, ()>("a", ()).unwrap();
 }
