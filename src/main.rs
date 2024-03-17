@@ -23,6 +23,6 @@ fn main() {
     let code = code.trim().strip_suffix(";").unwrap_or(&code);
     let mut script = js_sandbox::Script::from_string(&format!("const a = (\n{}\n);", code))
         .unwrap()
-        .with_timeout(Duration::from_secs(1));
+        .with_timeout(Duration::from_secs(60));
     script.call::<_, ()>("a", ()).unwrap();
 }

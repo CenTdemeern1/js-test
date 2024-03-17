@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-js-sandbox = "0.2.0-rc.2"
+js-sandbox = { git = "https://github.com/CenTdemeern1/js-sandbox.git" }
 swc = "0.273.21"
 swc_common = { version = "0.33.19", features = ["tty-emitter"] }
 swc_ecma_ast = "0.112.5"

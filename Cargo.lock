@@ -746,9 +746,8 @@ checksum = "b1a46d1a171d865aa5f83f92695765caa047a9b4cbae2cbf37dbd613a793fd4c"
 
 [[package]]
 name = "js-sandbox"
-version = "0.2.0-rc.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d275c828474dc2a7ac450b18ee84421e3c09281beb411ae0ef8b073b307057fb"
+version = "0.2.0-rc.1"
+source = "git+https://github.com/CenTdemeern1/js-sandbox.git#e2d1baec88c943ae9ef239f37265d82a8ca87678"
 dependencies = [
  "deno_core",
  "js-sandbox-macros",
@@ -758,9 +757,8 @@ dependencies = [
 
 [[package]]
 name = "js-sandbox-macros"
-version = "0.2.0-rc.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8eca024fdf3ab1f7241854340ca265e5810d1eafb122672369c1962e6c3b9fb2"
+version = "0.2.0-rc.1"
+source = "git+https://github.com/CenTdemeern1/js-sandbox.git#e2d1baec88c943ae9ef239f37265d82a8ca87678"
 dependencies = [
  "proc-macro2",
  "quote",
