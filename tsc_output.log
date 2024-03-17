@@ -1,8 +1,0 @@
-[34mmain.ts[0m:[33m2[0m:[33m32[0m - [31merror[0m[30m TS2322: [0mType 'string' is not assignable to type 'number'.
-
-[30;47m2[0m     function hello(): number { return "Hi there!" }
-[30;47m [0m [31m                               ~~~~~~[0m
-
-
-Found 1 error in main.ts[30m:2[0m
-
