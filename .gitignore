@@ -1,3 +1,4 @@
 /target
 tsc_output.log
 .DS_Store
+main.js
